@@ -1,8 +1,11 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone } from "lucide-react"
+import { Mail, MapPin, ArrowUpCircle } from "lucide-react"
+import Link from "next/link"
 
 export default function Contact() {
   const contactInfo = [
@@ -18,17 +21,11 @@ export default function Contact() {
       value: "Seattle, US",
       link: "https://maps.google.com/?q=Seattle,US",
     },
-    {
-      icon: <Phone className="h-6 w-6 text-primary" />,
-      title: "Phone",
-      value: "408-772-1173",
-      link: "tel:408-772-1173",
-    },
   ]
 
   return (
-    <div className="w-full bg-muted/30">
-      <section id="contact" className="py-20">
+    <div id="contact" className="w-full bg-muted/30 relative">
+      <section className="py-20">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="space-y-12">
             <div className="space-y-4 text-center">
@@ -38,10 +35,10 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 items-start">
               <div className="lg:col-span-2">
-                <Card>
-                  <CardContent className="p-6">
+                <Card className="h-full">
+                  <CardContent className="p-6 h-full">
                     <form action="https://formspree.io/f/xanoenzo" method="POST" className="space-y-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
@@ -88,7 +85,7 @@ export default function Contact() {
                 </Card>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-6 flex flex-col">
                 {contactInfo.map((info, index) => (
                   <Card key={index} className="overflow-hidden">
                     <CardContent className="p-6 flex items-start gap-4">
@@ -112,11 +109,13 @@ export default function Contact() {
                   </Card>
                 ))}
 
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-medium mb-2">Connect with me</h3>
-                    <p className="text-sm text-muted-foreground mb-4">Find me on these platforms</p>
-                    <div className="flex gap-4">
+                <Card className="h-full flex flex-col">
+                  <CardContent className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-medium mb-2">Connect with me</h3>
+                      <p className="text-sm text-muted-foreground mb-4">Find me on these platforms</p>
+                    </div>
+                    <div className="flex gap-4 mt-auto">
                       <Button variant="outline" size="icon" asChild>
                         <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                           <svg
@@ -186,6 +185,22 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      
+      {/* Dedicated arrow section with proper spacing */}
+      <div className="relative py-10 flex justify-center">
+        <div className="js-only">
+          <Link
+            href="#"
+            onClick={(e) => {
+              e.preventDefault()
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }}
+            className="inline-block"
+          >
+            <ArrowUpCircle className="h-12 w-12 text-primary animate-bounce hover:text-primary/80 transition-colors" />
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function Hero() {
   return (
-    <section id="home" className="py-20 md:py-32 flex flex-col items-center justify-center min-h-[90vh]">
+    <section id="home" className="relative py-20 md:py-32 flex flex-col items-center justify-center min-h-[90vh] pb-32">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
@@ -57,17 +57,6 @@ export default function Hero() {
               </Link>
             </Button>
           </div>
-        </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:block js-only">
-          <Link
-            href="#"
-            onClick={(e) => {
-              e.preventDefault()
-              window.scrollTo({ top: 0, behavior: "smooth" })
-            }}
-          >
-            <ArrowUpCircle className="h-10 w-10 text-primary animate-bounce" />
-          </Link>
         </div>
       </div>
     </section>
