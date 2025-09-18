@@ -1,24 +1,5 @@
 # Vindhya Banda - Personal Portfolio Website
 
-A modern, responsive portfolio website showcasing my work as a Technical Product Manager at Microsoft, with expertise in Digital Twin Builder, Azure IoT, and AI-powered product development.
-
-## 🌟 Features
-
-- **Responsive Design**: Optimized for all devices with modern UI/UX
-- **Dark/Light Mode**: Toggle between themes with system preference detection
-- **Interactive Sections**: Hero, About, Experience, Education, Skills, Projects, and Contact
-- **Static Site Generation**: Built with Next.js for optimal performance
-- **GitHub Pages Ready**: Configured for easy deployment to GitHub Pages
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS with custom design system
-- **UI Components**: Radix UI primitives with shadcn/ui
-- **Icons**: Lucide React
-- **Deployment**: GitHub Pages (static export)
-- **Analytics**: Vercel Analytics integration
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -29,7 +10,7 @@ A modern, responsive portfolio website showcasing my work as a Technical Product
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/vindhyabanda/personal-website.git
+git clone https://github.com/vindhyabanda/personal-website.git:
 cd personal-website
 ```
 
@@ -48,20 +29,6 @@ pnpm dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## 📦 Build & Deploy
-
-### For GitHub Pages
-
-1. Build the static export:
-```bash
-npm run build
-npm run export
-```
-
-2. The static files will be generated in the `out/` directory.
-
-3. Deploy to GitHub Pages using the included GitHub Actions workflow or manually upload the `out/` folder.
 
 ## 🎨 Customization
 
