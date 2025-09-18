@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Analytics } from "@/components/analytics"
 import ClientLayout from "./client"
 import { Suspense } from "react"
-import "@/styles/globals.css" // Import globals.css here
+import "./globals.css" // Import the correct globals.css with pink theme
 
 export const metadata: Metadata = {
   title: "Vindhya Banda | Technical Product Manager",

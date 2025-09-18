@@ -62,6 +62,26 @@ export default function Chatbot() {
     setIsLoading(true)
 
     try {
+      // Check if we're in a static environment (GitHub Pages)
+      const isStatic = typeof window !== 'undefined' && window.location.hostname.includes('github.io');
+      
+      if (isStatic) {
+        // Provide a static response for GitHub Pages
+        const staticResponse = "Hi! I'm currently running in static mode on GitHub Pages. For the full AI-powered chat experience, please visit the live version of this website. In the meantime, you can learn about Vindhya through the portfolio sections above, or contact her directly at vindhyabanda9@gmail.com or through LinkedIn.";
+        
+        setTimeout(() => {
+          const assistantMessage: Message = {
+            id: (Date.now() + 1).toString(),
+            role: "assistant",
+            content: staticResponse,
+            timestamp: new Date(),
+          }
+          setMessages((prev) => [...prev, assistantMessage])
+          setIsLoading(false)
+        }, 1000)
+        return
+      }
+
       const response = await fetch("/api/chatbot", {
         method: "POST",
         headers: {
@@ -89,7 +109,7 @@ export default function Chatbot() {
         id: (Date.now() + 1).toString(),
         role: "assistant",
         content:
-          "I'm sorry, I'm having trouble responding right now. Please try again later or contact Vindhya directly.",
+          "I'm sorry, I'm having trouble responding right now. Please try again later or contact Vindhya directly at vindhyabanda9@gmail.com.",
         timestamp: new Date(),
       }
       setMessages((prev) => [...prev, errorMessage])
